@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoRL 2026 · Austin 活动汇总 — 官方 + After Party</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171c24; --card2:#1e2530; --line:#2a3242;
+    --text:#e8ecf1; --muted:#9aa7b8; --accent:#6ea8fe;
+    --green:#34c77b; --amber:#f5a623; --red:#ff6b6b; --blue:#6ea8fe; --purple:#b388ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.55;padding:0 0 60px}
+  a{color:var(--accent);text-decoration:none}
+  header{padding:34px 20px 22px;max-width:960px;margin:0 auto}
+  header h1{font-size:26px;letter-spacing:.5px}
+  header h1 span{color:var(--accent)}
+  header p{color:var(--muted);margin-top:8px;font-size:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .meta span{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:4px 12px;font-size:12.5px;color:var(--muted)}
+  .meta span b{color:var(--text)}
+  main{max-width:960px;margin:0 auto;padding:0 20px}
+  .filters{position:sticky;top:0;z-index:10;background:rgba(14,17,22,.94);backdrop-filter:blur(6px);padding:12px 0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px}
+  .filters button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer}
+  .filters button.on{background:var(--accent);color:#081120;border-color:var(--accent);font-weight:600}
+  .filters .sep{width:1px;background:var(--line);margin:4px 6px}
+  section.day{margin-top:28px}
+  section.day h2{font-size:19px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  section.day h2 small{color:var(--muted);font-size:13px;font-weight:400;margin-left:8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:12px}
+  .card .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+  .card h3{font-size:16.5px;line-height:1.4}
+  .card h3 .cn{color:var(--muted);font-weight:400;font-size:14px}
+  .time{font-size:14px;font-weight:700;color:var(--accent);white-space:nowrap}
+  .badge{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .b-open{background:rgba(52,199,123,.15);color:var(--green)}
+  .b-approval{background:rgba(245,166,35,.15);color:var(--amber)}
+  .b-full{background:rgba(255,107,107,.15);color:var(--red)}
+  .b-official{background:rgba(110,168,254,.15);color:var(--blue)}
+  .b-lead{background:rgba(179,136,255,.15);color:var(--purple)}
+  .card p{color:var(--muted);font-size:13.5px;margin-top:8px}
+  .card p b{color:var(--text);font-weight:600}
+  .card .links{margin-top:10px}
+  .card .links a{display:inline-block;background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px;margin-right:8px}
+  .info{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:12px;font-size:14px}
+  .info h3{font-size:15px;margin-bottom:8px}
+  .info li{margin:5px 0 5px 18px;color:var(--muted)}
+  .info li b{color:var(--text)}
+  .warn{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.4);border-radius:12px;padding:14px 18px;margin-top:12px;font-size:13.5px;color:#f5cf87}
+  .warn b{color:#ffd98a}
+  footer{max-width:960px;margin:36px auto 0;padding:0 20px;color:var(--muted);font-size:12.5px;line-height:1.8}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>CoRL 2026 · <span>Austin 活动汇总</span></h1>
+  <p>Conference on Robot Learning · 2026 年 11 月 9–12 日 · 奥斯汀<br>官方活动 + 会外 After Party / Happy Hour / 午餐会，全收录。点报名链接再确认一次状态，很多场要审核、名额一直在变。</p>
+  <div class="meta">
+    <span>📍 <b>3 个会场</b>：JW Marriott · Hilton Austin · Bass Hall</span>
+    <span>🗓️ <b>30 个活动</b>：9 官方 + 20 会外 + 1 线索</span>
+    <span>🔄 数据更新：<b>2026-11-07 晚</b></span>
+  </div>
+</header>
+
+<main>
+  <div class="filters" id="filters">
+    <button data-day="all" class="on">全部日期</button>
+    <button data-day="sun">周日 11/8</button>
+    <button data-day="mon">周一 11/9</button>
+    <button data-day="tue">周二 11/10</button>
+    <button data-day="wed">周三 11/11</button>
+    <button data-day="thu">周四 11/12</button>
+    <span class="sep"></span>
+    <button data-type="all" class="on">全部类型</button>
+    <button data-type="official">官方</button>
+    <button data-type="social">会外派对</button>
+  </div>
+
+  <div class="info">
+    <h3>📍 三个会场</h3>
+    <ul>
+      <li><b>JW Marriott Austin</b> — 110 E 2nd St：海报、展览、午餐、休息（Badge 领取也在此，Room 201）</li>
+      <li><b>Hilton Austin</b> — 500 E 4th St：Day 1–2 的报告和 Keynote</li>
+      <li><b>Bass Concert Hall</b> — 2350 Robert Dedman Dr（UT 校园）：Day 3 Keynote + 告别招待会</li>
+    </ul>
+    <h3 style="margin-top:14px">🎤 Keynotes</h3>
+    <ul>
+      <li><b>Jim Fan</b>（NVIDIA）— 周一 11/9 13:50《From Dreaming to Doing: World Action Models and Agentic Robotics》</li>
+      <li><b>Fei-Fei Li</b>（Stanford）· <b>Russ Tedrake</b>（MIT）· <b>Wolfram Burgard</b>（UT Nuremberg）· <b>Lisa Su</b>（AMD）</li>
+    </ul>
+    <h3 style="margin-top:14px">🎫 Badge 领取 · JW Marriott Room 201</h3>
+    <ul>
+      <li>周日 11/8：14:00–20:00；周一–周二：7:30–17:00；周三：9:00–13:30；周四：8:00–13:30</li>
+    </ul>
+  </div>
+
+  <div class="warn">⚠️ <b>撞车提醒：周二 11/10 晚上 18:00–21:00 有 8 场活动同时开</b>，只能选一个；周一晚上的活动都和 17:00 的 Econ info session（Zoom，强制参加）冲突。周三 11/11 建议路线：16:00 CRV（Rainey St）→ 18:00 Torc（Hilton 内）→ 20:30 后可去 NVIDIA 招待会。</div>
+
+  <!-- ============ SUNDAY ============ -->
+  <section class="day" data-day="sun">
+    <h2>周日 11 月 8 日 <small>会前 · 领 Badge</small></h2>
+    <div class="card" data-type="official">
+      <div class="top"><h3>Badge Pickup · 领参会证</h3><span class="time">14:00–20:00</span></div>
+      <p><b>地点：</b>JW Marriott Room 201 · <b>官方</b> · 建议周日就去领，周一早上人多。带身份证件，Badge 不可转借他人身份使用。</p>
+      <div class="links"><a href="https://www.corl.org/attending/venue-information" target="_blank" rel="noopener">官方 Venue 信息 ↗</a></div>
+    </div>
+  </section>
+
+  <!-- ============ MONDAY ============ -->
+  <section class="day" data-day="mon">
+    <h2>周一 11 月 9 日 <small>主会 Day 1 · 晚上 4 场派对</small></h2>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>主会 Day 1 · Main Conference <span class="cn">报告 + Keynote</span></h3><span class="time">全天</span></div>
+      <p><b>地点：</b>Hilton Austin（报告/Keynote）+ JW Marriott（海报/展览）· <b>官方</b> · Keynote：Jim Fan（NVIDIA）13:50。</p>
+      <div class="links"><a href="https://www.corl.org/" target="_blank" rel="noopener">corl.org ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Rooftop Happy Hour: Physical AI Data &amp; Sim Infra <span class="cn">屋顶酒会</span></h3><span class="time">17:00–19:00</span></div>
+      <p><b>主办：</b>AI Circle × Midcentury · <b>地点：</b>Congress Ave 一带屋顶（通过后显示地址）· 饮品 + 小食 · 主题：Physical AI 数据与仿真基建</p>
+      <p><span class="badge b-full">已满 · 仅 waitlist</span></p>
+      <div class="links"><a href="https://luma.com/u6rr5lql" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Gento Robotics Happy Hour <span class="cn">机器人公司酒会</span></h3><span class="time">18:00–20:00</span></div>
+      <p><b>主办：</b>Gento Robotics（PokeBot、Calder 赞助）· <b>地点：</b>Congress Ave 屋顶（通过后显示地址）· 酒水 + 餐食 · 无 panel、无 pitch，纯社交</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/6ua2bbzf" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Shuffle Into the Real World — Maxinsights × RoboForce Panel &amp; Mixer <span class="cn">Panel + 沙狐球</span></h3><span class="time">18:00–21:00</span></div>
+      <p><b>主办：</b>Maxinsights × RoboForce · <b>地点：</b>Electric Shuffle, Austin · Panel：Kun Wang（Maxinsights CTO）、Calvin Zhou（RoboForce 联合创始人），聊真实世界机器人学习；之后沙狐球 + 酒水小食</p>
+      <p><span class="badge b-open">开放报名</span></p>
+      <div class="links"><a href="https://luma.com/wq7neni9" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>Official Welcome Dinner <span class="cn">官方欢迎晚宴</span></h3><span class="time">19:00–22:00</span></div>
+      <p><b>地点：</b>The Long Center, 701 W Riverside Dr（有接驳车）· <b>官方 · 需 Badge</b> · 餐车晚餐、现场音乐、机器人乐队</p>
+      <div class="links"><a href="https://www.corl.org/attending/venue-information" target="_blank" rel="noopener">官方 Venue 信息 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Happy Hour with Sky9 after CoRL <span class="cn">投资人酒会</span></h3><span class="time">20:00–22:00</span></div>
+      <p><b>主办：</b>Sky9 Capital × UT Austin INF 385T × Z Potentials × Muka Robotics · <b>地点：</b>JW Marriott / Hilton 步行可达 · 机器人学习研究者、创始人、投资人自由交流；酒水小食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/72j50uvo" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+  </section>
+
+  <!-- ============ TUESDAY ============ -->
+  <section class="day" data-day="tue">
+    <h2>周二 11 月 10 日 <small>主会 Day 2 · 晚上 8 场撞车</small></h2>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>主会 Day 2 · Main Conference <span class="cn">报告 + 海报</span></h3><span class="time">全天</span></div>
+      <p><b>地点：</b>Hilton Austin + JW Marriott · <b>官方</b></p>
+      <div class="links"><a href="https://www.corl.org/" target="_blank" rel="noopener">corl.org ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Robots Gotta Eat: Researchers Lunch <span class="cn">研究者午餐</span></h3><span class="time">11:30–14:00</span></div>
+      <p><b>主办：</b>1943 Community（Charlotte Xia、Shin、Lianhui Qin、Otilia Barbuta）· <b>地点：</b>Waller Creek 一带 · Physical AI 研究者午餐，提供餐食</p>
+      <p><span class="badge b-full">已满 · 仅 waitlist</span> <span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/austin" target="_blank" rel="noopener">在 Luma Austin 搜索活动名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>Women &amp; Allies Lunch <span class="cn">女性与盟友午餐会 · 官方</span></h3><span class="time">12:00–13:30</span></div>
+      <p><b>地点：</b>Hilton Austin · <b>官方 · 需 Badge</b> · Google 表单报名，限 80 人（Toyota Research Institute 赞助）</p>
+      <div class="links"><a href="https://forms.gle/ES3NnWmgJZDVpRJYA" target="_blank" rel="noopener">Google 表单报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>Tesla Gigafactory Tours <span class="cn">工厂参观 · 官方</span></h3><span class="time">12:00 / 15:00 两场</span></div>
+      <p><b>地点：</b>Tesla Gigafactory Texas · 每团 50 人，先到先得 · 需在官网表格报名</p>
+      <div class="links"><a href="https://www.corl.org/attending/local-tours" target="_blank" rel="noopener">官方 Tours 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>the robotics decade: tasks — founder / researcher lunch <span class="cn">创始人午餐</span></h3><span class="time">12:00–14:00</span></div>
+      <p><b>主办：</b>0 State · Scale AI、Palatial · <b>地点：</b>Waller Creek 一带屋顶（通过后显示地址）· 聊机器人未来十年；提供午餐</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/l8lqxxwb" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Robots On Rainey Street: A Night at CoRL 2026 <span class="cn">Rainey St 之夜</span></h3><span class="time">18:00–21:00</span></div>
+      <p><b>主办：</b>Samsung Next · Radical Ventures · NVIDIA · CoreWeave · <b>地点：</b>Rainey Street（通过后显示地址）· 见投资人、创始人；酒水 + 餐食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/fhjn0lmd" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>CoRL 2026 Junfan × GenRobot × Saturday Robotics Research Night <span class="cn">学术之夜</span></h3><span class="time">18:00–21:00</span></div>
+      <p><b>主办：</b>朱俊帆 · GenRobot · Saturday Robotics · <b>地点：</b>6th St 一带 18 楼，离会场步行 6 分钟 · Lightning talk（世界模型、Physical AI、人形机器人、VLA、机器人基础模型、Sim-to-Real）+ 亚洲自助晚餐 + 酒水</p>
+      <p><span class="badge b-open">开放报名</span></p>
+      <div class="links"><a href="https://luma.com/x0kxyiv2" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Reactor × Ultra CoRL Happy Hour <span class="cn">JW Marriott 屋顶酒会</span></h3><span class="time">18:00–22:00</span></div>
+      <p><b>主办：</b>Reactor × Ultra · <b>地点：</b>JW Marriott 屋顶 · 机器人、世界模型、实时 AI 主题；152 人已报名</p>
+      <p><span class="badge b-full">已满 · 仅 waitlist</span></p>
+      <div class="links"><a href="https://luma.com/wf8vuttw" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Bots &amp; Boots — The Dexmate CoRL Afterparty <span class="cn">会后派对</span></h3><span class="time">18:30–21:00</span></div>
+      <p><b>主办：</b>Dexmate · <b>地点：</b>Speakeasy, 412 Congress Ave · 酒水 + 餐食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/7ihu11na" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>The Future of Robot Learning <span class="cn">机器人学习的未来</span></h3><span class="time">18:30–21:00</span></div>
+      <p><b>主办：</b>PyTorch ATX × Austin Robotics · <b>地点：</b>Antler VC, 800 Brazos St #340 · 聊机器人学习未来；披萨 + 小食 + 饮品</p>
+      <p><span class="badge b-open">开放报名</span></p>
+      <div class="links"><a href="https://luma.com/zskz4acb" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Lute Evening: deploying physical intelligence <span class="cn">Lute 团队晚宴</span></h3><span class="time">18:30–20:00</span></div>
+      <p><b>主办：</b>Lute（Physical AI 创业公司）· <b>地点：</b>East Cesar Chavez（通过后显示地址）· 与 Lute AI 团队共进晚餐，聊机器人在零售、物流、制造现场的部署</p>
+      <p><span class="badge b-full">已满 · 仅 waitlist</span> <span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/spxxxrzm" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Gritt Happy Hour @ CoRL 2026 <span class="cn">酒会</span></h3><span class="time">19:00–21:00</span></div>
+      <p><b>主办：</b>Gritt AI · <b>地点：</b>离会场步行 3 分钟（通过后显示地址）· 酒水 + 小食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/xldm6sep" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>CoRL After Dark — Bedrock Robotics × NVIDIA <span class="cn">深夜场</span></h3><span class="time">20:30–23:30</span></div>
+      <p><b>主办：</b>Bedrock Robotics × NVIDIA · <b>地点：</b>JW Marriott 步行可达 · 酒水 + 餐食；聊端到端模型如何把 50 吨工程机械变成机器人；Bedrock 在招人</p>
+      <p><span class="badge b-open">开放报名</span></p>
+      <div class="links"><a href="https://luma.com/6zvo84pn" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+  </section>
+
+  <!-- ============ WEDNESDAY ============ -->
+  <section class="day" data-day="wed">
+    <h2>周三 11 月 11 日 <small>主会 Day 3（UT 校园）· 晚上 5 场</small></h2>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>主会 Day 3 · Main Conference <span class="cn">报告 + Keynote</span></h3><span class="time">全天</span></div>
+      <p><b>地点：</b>Bass Concert Hall, UT Austin · <b>官方</b> · 当天在 UT 校园，提前规划交通</p>
+      <div class="links"><a href="https://www.corl.org/" target="_blank" rel="noopener">corl.org ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Bedrock Robotics: Test Site Field Trip <span class="cn">测试场参观</span></h3><span class="time">09:00–14:00</span></div>
+      <p><b>主办：</b>Bedrock Robotics · 奥斯汀接送，参观 1200 英亩测试场，看端到端策略驾驶 8 万磅工程机械实机演示，含午餐；结束后送回参加 CoRL 招待会 · 限约 25 人</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/e0ezgakv" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>Official Farewell Dessert Reception <span class="cn">官方告别甜点招待会</span></h3><span class="time">15:00–17:00</span></div>
+      <p><b>地点：</b>Bass Concert Hall, UT Austin · <b>官方 · 需 Badge</b> · 甜点招待会</p>
+      <div class="links"><a href="https://www.corl.org/attending/venue-information" target="_blank" rel="noopener">官方 Venue 信息 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Physical AI Night <span class="cn">Physical AI 之夜</span></h3><span class="time">16:00–19:00</span></div>
+      <p><b>主办：</b>CRV × LanceDB × Orchestral Labs · <b>地点：</b>Rainey Street（通过后显示地址）· 只有酒水，未提餐食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/e9menn5c" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Samsung Robotics: Night at CoRL <span class="cn">三星机器人之夜</span></h3><span class="time">17:30–20:30</span></div>
+      <p><b>主办：</b>Samsung Research America · <b>地点：</b>Downtown Austin · 酒水 + 餐食</p>
+      <p><span class="badge b-full">已满 · 仅 waitlist</span></p>
+      <div class="links"><a href="https://luma.com/dw26an5o" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Torc Happy Hour @ CoRL <span class="cn">自动驾驶卡车酒会</span></h3><span class="time">18:00–20:00</span></div>
+      <p><b>主办：</b>Torc Robotics · <b>地点：</b>Austin Taco Project, 500 E 4th St（Hilton 内）· 酒水 + 小食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/torc_corl_2026" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>NVIDIA Researcher Reception <span class="cn">NVIDIA 研究者招待会</span></h3><span class="time">18:00–21:00</span></div>
+      <p><b>主办：</b>NVIDIA · <b>地点：</b>Bull and Bowl · NVIDIA 展位 #404（JW Marriott，11/9–11）</p>
+      <p><span class="badge b-official">官方/赞助商活动</span></p>
+      <div class="links"><a href="https://www.nvidia.com/en-us/events/corl/" target="_blank" rel="noopener">NVIDIA CoRL 页面 ↗</a></div>
+    </div>
+
+    <div class="card" data-type="social">
+      <div class="top"><h3>Physical AI After Hours · CoRL Edition <span class="cn">深夜场</span></h3><span class="time">18:30–21:00</span></div>
+      <p><b>主办：</b>Circuit Launch × AXIS Connect · <b>地点：</b>Texas Robotics, 2501 Wichita St · 只有啤酒，未提餐食</p>
+      <p><span class="badge b-approval">需审核</span></p>
+      <div class="links"><a href="https://luma.com/w88rdxbl" target="_blank" rel="noopener">Luma 报名 ↗</a></div>
+    </div>
+  </section>
+
+  <!-- ============ THURSDAY ============ -->
+  <section class="day" data-day="thu">
+    <h2>周四 11 月 12 日 <small>Workshops Day</small></h2>
+
+    <div class="card" data-type="official">
+      <div class="top"><h3>Workshops Day <span class="cn">约 30 场 workshops</span></h3><span class="time">全天</span></div>
+      <p><b>官方</b> · 主题包括世界模型、机器人基础模型记忆、Sim-to-Real、Agentic Robotics、接触式操作等。其中：<b>Sim-to-Real Benchmarks 方向 workshop</b> 8:30–12:30（嘉宾：Yashraj Narang / NVIDIA、Guannan Qu / CMU、Yilun Du、Chen Tang / UCLA）；<b>Learn@Deploy</b> workshop 11:50 有 Bedrock 等公司的部署 panel。</p>
+      <div class="links"><a href="https://www.corl.org/" target="_blank" rel="noopener">corl.org ↗</a></div>
+    </div>
+  </section>
+
+  <!-- ============ LEADS ============ -->
+  <section class="day" data-day="all-leads">
+    <h2>未确认线索 <small>有消息但无公开报名</small></h2>
+    <div class="card" data-type="social">
+      <div class="top"><h3>Sieve 研究者晚宴 <span class="cn">赞助商晚宴</span></h3><span class="time">时间未知</span></div>
+      <p><b>主办：</b>Sieve（CoRL 赞助商）· 称本周会办几场研究者晚宴；无公开报名链接，需私信联系</p>
+      <p><span class="badge b-lead">未确认</span></p>
+      <div class="links"><a href="https://sieve.ai/contact" target="_blank" rel="noopener">Sieve 联系页 ↗</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>数据来源：CoRL 官网 corl.org、Luma Austin（luma.com/austin）、各主办方 LinkedIn / Luma 页面，以及 eurekazang.github.io/corl2026-socials（小红书“CoRL 2026 酒局饭局全收录”作者的汇总页）。状态截至 2026-11-07 晚；“需审核”= Luma 报名后等主办方通过，通过后才显示具体地址；“开放报名”= 报了名就能去；“已满”= 只能排 waitlist。</p>
+  <p>新活动还在不断出现，会议期间每天刷一次 <a href="https://luma.com/austin" target="_blank" rel="noopener">luma.com/austin</a>。本页仅做信息汇总，与 CoRL 官方无关。</p>
+</footer>
+
+<script>
+  const dayBtns=[...document.querySelectorAll('#filters [data-day]')];
+  const typeBtns=[...document.querySelectorAll('#filters [data-type]')];
+  let day='all', type='all';
+  function apply(){
+    document.querySelectorAll('section.day').forEach(sec=>{
+      const d=sec.dataset.day;
+      const showDay = day==='all' || d===day || d==='all-leads';
+      let anyVisible=false;
+      sec.querySelectorAll('.card').forEach(card=>{
+        const showType = type==='all' || card.dataset.type===type;
+        const show = showDay && showType;
+        card.classList.toggle('hidden', !show);
+        if(show) anyVisible=true;
+      });
+      sec.classList.toggle('hidden', !anyVisible);
+    });
+  }
+  dayBtns.forEach(b=>b.addEventListener('click',()=>{
+    day=b.dataset.day;
+    dayBtns.forEach(x=>x.classList.toggle('on',x===b));
+    apply();
+  }));
+  typeBtns.forEach(b=>b.addEventListener('click',()=>{
+    type=b.dataset.type;
+    typeBtns.forEach(x=>x.classList.toggle('on',x===b));
+    apply();
+  }));
+</script>
+</body>
+</html>
